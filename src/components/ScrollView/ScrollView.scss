@@ -1,0 +1,66 @@
+.ScrollView {
+  width: 100%;
+
+  .ScrollBox {
+    display: flex;
+
+    > * {
+      z-index: 3;
+    }
+
+    /* smartphones, touchscreens */
+    @media (hover: none) and (pointer: coarse) {
+      overflow-x: scroll;
+      overflow-y: hidden;
+      scrollbar-width: none;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+
+  .ActionIcon {
+    z-index: 4;
+    position: absolute;
+    background: gainsboro;
+    color: rgba(0, 0, 0, 0.87);
+    display: none;
+    cursor: pointer;
+    width: 48px;
+    height: 48px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    top: calc(50% - 24px);
+
+    &.disabled {
+      background: white;
+      color: rgba(0, 0, 0, 0.87);
+    }
+
+    &.show {
+      display: flex;
+    }
+
+    /* smartphones, touchscreens */
+    @media (hover: none) and (pointer: coarse) {
+      display: none !important;
+    }
+
+    &:hover {
+      background: gainsboro;
+    }
+
+    &.RightIcon {
+      right: 0;
+    }
+  }
+
+  .InnerBox {
+    position: relative;
+    overflow: hidden;
+    user-select: none;
+    width: 100%;
+    height: 100%;
+  }
+}

@@ -1,0 +1,22 @@
+$dark-color: #333;
+$body-bg: #111;
+//** Global text color on `<body>`.
+$text-color: white;
+$body-color: $text-color;
+//** Global color for active items (e.g., navs or dropdowns).
+$component-active-color: $dark-color;
+//** Global background color for active items (e.g., navs or dropdowns).
+$component-active-bg: $dark-color;
+$dropdown-link-color: $text-color;
+$dropdown-bg: #333;
+//** Hover color for dropdown links.
+$dropdown-link-hover-color: darken($text-color, 20%);
+$dropdown-link-hover-bg: lighten($dark-color, 10%);
+$input-bg: $dark-color;
+$input-color: $text-color;
+
+$theme-colors: (
+  "dark": $dark-color,
+  "primary": tomato,
+  "secondary": blue,
+);

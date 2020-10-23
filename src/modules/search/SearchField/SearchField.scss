@@ -1,0 +1,53 @@
+.nav-search {
+  height: 36px;
+  color: #fff;
+  padding-right: 2rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  > input {
+    padding: 8px;
+    padding-right: 1.5rem;
+    padding-top: 3px;
+    color: inherit;
+    outline: none;
+    width: 0px;
+    background: #333333ad;
+    border: 1px solid gainsboro;
+    border-radius: 19px;
+    transition: width 0.5s;
+    cursor: pointer;
+    opacity: 0;
+
+    &::placeholder {
+      color: lightgrey;
+    }
+
+    &:focus {
+      padding-left: 2.6rem;
+      width: 22rem;
+      cursor: text;
+      opacity: 1;
+    }
+  }
+
+  &.SearchField-showed {
+    .search-icon {
+      color: gainsboro;
+    }
+
+    input {
+      padding-left: 2.6rem;
+      width: 22rem;
+      cursor: text;
+      opacity: 1;
+    }
+  }
+
+  .search-icon {
+    cursor: pointer;
+    position: absolute;
+    left: 18px;
+  }
+}

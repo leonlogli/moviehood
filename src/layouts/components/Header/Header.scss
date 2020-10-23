@@ -1,0 +1,22 @@
+.Header {
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 2px -2px;
+
+  &.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.8);
+
+    &:hover,
+    &:focus {
+      color: rgba(255, 255, 255, 1);
+    }
+  }
+
+  .register {
+    margin-left: 8px;
+  }
+
+  img.rounded-circle {
+    width: 32px;
+    margin-right: 24px;
+  }
+}

@@ -1,0 +1,32 @@
+.Home {
+  .hero {
+    > img {
+      object-fit: cover;
+      height: 50vh;
+      min-height: 300px;
+      width: 100%;
+    }
+
+    > .introBox {
+      top: calc(50% - 50px);
+      left: 24px;
+      font-weight: 00;
+    }
+
+    > .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: none;
+      display: block;
+      background: linear-gradient(
+        180deg,
+        transparent,
+        rgba(37, 37, 37, 0.61),
+        #111
+      );
+    }
+  }
+}

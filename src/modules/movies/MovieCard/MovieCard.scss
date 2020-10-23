@@ -1,0 +1,53 @@
+.MovieCard {
+  position: relative;
+  cursor: pointer;
+
+  img {
+    width: 302px;
+
+    @media screen and (max-width: 800px) {
+      width: 232px;
+    }
+  }
+
+  .textBox {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    color: #fff;
+    background: radial-gradient(black, transparent);
+    bottom: 0;
+    left: 0;
+    color: #fff;
+    padding: 16px;
+
+    > span {
+      border-radius: 14px;
+      font-size: 12px;
+      font-weight: 400;
+    }
+
+    > span svg {
+      margin-right: 3px;
+      width: 1em;
+    }
+  }
+
+  .FavoriteIcon {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    color: #fff;
+    background: #00000052;
+  }
+
+  h2 {
+    color: white;
+    font-size: 0.9rem;
+    margin: 0;
+
+    @media screen and (max-width: 800px) {
+      font-size: 0.6rem;
+    }
+  }
+}

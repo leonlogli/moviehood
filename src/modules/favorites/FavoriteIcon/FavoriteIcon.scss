@@ -1,0 +1,13 @@
+.FavoriteIcon {
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  color: inherit;
+  border-radius: 50%;
+
+  &:hover {
+    background: #00000052;
+  }
+}
