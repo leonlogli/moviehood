@@ -19,7 +19,10 @@ const movieDetailsReducer = (state = initialState, action) => {
     }
     case GET_MOVIE_DETAILS_SUCCESS: {
       const movieDetails = { ...state.movieDetails };
-      movieDetails[payload.id] = payload;
+
+      if (payload.id) {
+        movieDetails[payload.id] = payload;
+      }
 
       return { ...state, movieDetails, loading: false, error: null };
     }

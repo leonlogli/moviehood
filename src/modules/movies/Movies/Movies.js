@@ -1,36 +1,34 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import queryString from "query-string";
 
-import { tmdbApi } from "../../../api";
+import { movieCollections, tmdbApi } from "../../../api";
 import { ProgressIndicator } from "../../../components";
 
-import { MovieCard, formatMovie } from "../../movies";
+import { MovieCard, formatMovie } from "..";
 import { useInfiniteScroll } from "../../../hooks";
 
-import "./SearchPage.scss";
+import "./Movies.scss";
 
-const SearchPage = () => {
+const Movies = () => {
   const [searchResult, setSearchResult] = useState({});
   const location = useLocation();
+  const collection = location.pathname.substring(8);
 
-  const { query } = queryString.parse(location.search);
   const movies = searchResult.results || [];
+  const isValidCollection = Object.keys(movieCollections).includes(collection);
 
   const hasMore = searchResult.page
     ? searchResult.page < searchResult.total_results
     : true;
 
-  const loading = query && hasMore;
-
   const loadMoreMovies = () => {
     const { page = 0, results = [] } = searchResult;
     tmdbApi
-      .searchMovies({ query, page: page + 1 })
+      .getMovies({ collection, page: page + 1 })
       .then(({ data }) => {
         setSearchResult({
           ...data,
-          query,
+          collection,
           results: [...results, ...data.results.map(formatMovie)],
         });
       })
@@ -42,28 +40,32 @@ const SearchPage = () => {
 
   useEffect(() => {
     setSearchResult({});
-  }, [query]);
+  }, [collection]);
 
   const { loaderRef } = useInfiniteScroll({
     hasMore,
     onLoadMore: loadMoreMovies,
   });
 
+  if (!isValidCollection) {
+    return <p className="py-4">Sorry, this page cannot be found!</p>;
+  }
+
   return (
-    <div className="SearchPage container my-4">
-      <h1 className="mb-3 mt-4 h3">Search results</h1>
-      {!loading && movies.length === 0 && (
-        <p>There are no movies that matched your query.</p>
-      )}
+    <div className="Movies container my-4">
+      <h1 className="mb-3 mt-4 h3">
+        {movieCollections[collection] + " movies"}
+      </h1>
+      {movies.length === 0 && <p>No movie found.</p>}
       <div className="content d-flex flex-wrap justify-content-start">
         {movies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}
       </div>
-      {loading && <ProgressIndicator ref={loaderRef} />}
+      {hasMore && <ProgressIndicator ref={loaderRef} />}
     </div>
   );
 };
 
-export { SearchPage };
-export default SearchPage;
+export { Movies };
+export default Movies;
