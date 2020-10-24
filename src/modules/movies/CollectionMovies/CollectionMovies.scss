@@ -3,6 +3,31 @@
   overflow-x: hidden;
   margin-left: 16px;
 
+  .MoviePreviewCard {
+    min-width: 60vw;
+    max-width: 60vw;
+
+    @media (min-width: 576px) {
+      min-width: 52vw;
+      max-width: 52vw;
+    }
+
+    @media (min-width: 768px) {
+      min-width: 39vw;
+      max-width: 39vw;
+    }
+
+    @media (min-width: 992px) {
+      min-width: 27vw;
+      max-width: 27vw;
+    }
+
+    @media (min-width: 1920px) {
+      min-width: 22vw;
+      max-width: 22vw;
+    }
+  }
+
   .view-all {
     margin-right: 16px;
     text-decoration: none;

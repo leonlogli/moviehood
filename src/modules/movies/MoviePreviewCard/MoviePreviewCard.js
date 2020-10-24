@@ -5,10 +5,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { FavoriteIcon } from "../../favorites";
 
-import "./MovieCard.scss";
+import "./MoviePreviewCard.scss";
 import noImg from "../../../assets/images/no-image.jpg";
 
-const MovieCard = ({ movie, className = "" }) => {
+const MoviePreviewCard = ({ movie, className = "" }) => {
   const { id, title, coverImage, vote_average, vote_count } = movie;
   const history = useHistory();
 
@@ -17,7 +17,7 @@ const MovieCard = ({ movie, className = "" }) => {
   };
 
   return (
-    <div className={"MovieCard " + className} onClick={handleClick}>
+    <div className={"MoviePreviewCard " + className} onClick={handleClick}>
       <img src={coverImage || noImg} alt="movie" />
       <div className="textBox">
         <h2>{title}</h2>
@@ -31,5 +31,5 @@ const MovieCard = ({ movie, className = "" }) => {
   );
 };
 
-export { MovieCard };
-export default MovieCard;
+export { MoviePreviewCard };
+export default MoviePreviewCard;

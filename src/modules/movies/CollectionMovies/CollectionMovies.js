@@ -5,7 +5,7 @@ import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { ProgressIndicator, ScrollView } from "../../../components";
-import MovieCard from "../MovieCard";
+import MoviePreviewCard from "../MoviePreviewCard";
 import { collectionMoviesSelector, getCollectionMovies } from "../state";
 
 import "./CollectionMovies.scss";
@@ -41,7 +41,7 @@ const CollectionMovies = () => {
           </div>
           <ScrollView>
             {moviesData.movies.map((movie) => (
-              <MovieCard key={movie.id} movie={movie} />
+              <MoviePreviewCard key={movie.id} movie={movie} />
             ))}
           </ScrollView>
         </div>

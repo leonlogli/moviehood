@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import { movieCollections, tmdbApi } from "../../../api";
 import { ProgressIndicator } from "../../../components";
 
-import { MovieCard, formatMovie } from "..";
+import { MoviePreviewCard, formatMovie } from "..";
 import { useInfiniteScroll } from "../../../hooks";
 
 import "./Movies.scss";
@@ -59,7 +59,7 @@ const Movies = () => {
       {movies.length === 0 && <p>No movie found.</p>}
       <div className="content d-flex flex-wrap justify-content-start">
         {movies.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
+          <MoviePreviewCard key={movie.id} movie={movie} />
         ))}
       </div>
       {hasMore && <ProgressIndicator ref={loaderRef} />}

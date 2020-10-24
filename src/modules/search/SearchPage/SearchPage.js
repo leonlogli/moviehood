@@ -5,7 +5,7 @@ import queryString from "query-string";
 import { tmdbApi } from "../../../api";
 import { ProgressIndicator } from "../../../components";
 
-import { MovieCard, formatMovie } from "../../movies";
+import { MoviePreviewCard, formatMovie } from "../../movies";
 import { useInfiniteScroll } from "../../../hooks";
 
 import "./SearchPage.scss";
@@ -57,7 +57,7 @@ const SearchPage = () => {
       )}
       <div className="content d-flex flex-wrap justify-content-start">
         {movies.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
+          <MoviePreviewCard key={movie.id} movie={movie} />
         ))}
       </div>
       {loading && <ProgressIndicator ref={loaderRef} />}

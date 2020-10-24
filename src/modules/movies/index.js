@@ -1,4 +1,4 @@
 export * from "./Home";
 export * from "./Movies";
-export * from "./MovieCard";
+export * from "./MoviePreviewCard";
 export * from "./state";
