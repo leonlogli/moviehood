@@ -3,10 +3,13 @@ import { TMDB_IMAGE_BASE_URL, movieCollections } from "../../../api";
 
 const moviesStateSelector = (state) => state.movies;
 
-const formatMovie = (movie) => ({
+export const formatMovie = (movie) => ({
   ...movie,
-  coverImage: `${TMDB_IMAGE_BASE_URL.BACKDROP}${movie.backdrop_path}`,
-  image: `${TMDB_IMAGE_BASE_URL.POSTER}${movie.poster_path}`,
+  coverImage:
+    movie.backdrop_path &&
+    `${TMDB_IMAGE_BASE_URL.BACKDROP}${movie.backdrop_path}`,
+  image:
+    movie.poster_path && `${TMDB_IMAGE_BASE_URL.POSTER}${movie.poster_path}`,
 });
 
 export const moviesSelector = createSelector(

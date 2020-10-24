@@ -6,7 +6,7 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import avatar from "./avatar.png";
-import noImg from "./no-image.jpg";
+import noImg from "../../../assets/images/no-image.jpg";
 
 import "./MoviePageHeader.scss";
 
@@ -40,17 +40,16 @@ export const MoviePageHeader = ({ className, movie, ...other }) => {
         </span>
         <p>{movie.overview}</p>
         <h5 className="pb-2">Cast</h5>
-        {movie.cast && (
-          <ScrollView>
-            {movie.cast.map((author) => (
-              <div key={author.id} className="cast bg-dark">
-                <Image src={author.image || avatar} thumbnail />
-                <p className="m-0 px-2 pt-2">{author.name}</p>
-                <p className="m-0 px-2 pb-2">{author.character}</p>
-              </div>
-            ))}
-          </ScrollView>
-        )}
+
+        <ScrollView>
+          {movie.cast.map((author) => (
+            <div key={author.id} className="cast bg-dark">
+              <Image src={author.image || avatar} thumbnail />
+              <p className="m-0 px-2 pt-2">{author.name}</p>
+              <p className="m-0 px-2 pb-2">{author.character}</p>
+            </div>
+          ))}
+        </ScrollView>
       </div>
     </div>
   );

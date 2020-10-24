@@ -3,8 +3,10 @@ import { useHistory } from "react-router-dom";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import "./MovieCard.scss";
 import { FavoriteIcon } from "../../favorites";
+
+import "./MovieCard.scss";
+import noImg from "../../../assets/images/no-image.jpg";
 
 const MovieCard = ({ movie, className = "" }) => {
   const { id, title, coverImage, vote_average, vote_count } = movie;
@@ -16,7 +18,7 @@ const MovieCard = ({ movie, className = "" }) => {
 
   return (
     <div className={"MovieCard " + className} onClick={handleClick}>
-      <img src={coverImage} alt="movie" />
+      <img src={coverImage || noImg} alt="movie" />
       <div className="textBox">
         <h2>{title}</h2>
         <span>

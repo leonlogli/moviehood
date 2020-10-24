@@ -9,7 +9,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import { rrfProps } from "./store";
 import { AuthIsLoaded } from "./modules/auth";
 
-import "./styles/index.scss";
+import "./assets/scss/index.scss";
 
 ReactDOM.render(
   <Provider store={store}>

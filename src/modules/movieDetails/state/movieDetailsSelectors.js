@@ -16,7 +16,9 @@ export const movieDetailsSelector = createSelector(
     const { loading, error, movieDetails } = movieDetailsData;
 
     Object.values(movieDetails).forEach((movie) => {
-      movie.coverImage = `${TMDB_IMAGE_BASE_URL.BACKDROP}${movie.backdrop_path}`;
+      movie.coverImage =
+        movie.backdrop_path &&
+        `${TMDB_IMAGE_BASE_URL.BACKDROP}${movie.backdrop_path}`;
       movie.image =
         movie.poster_path &&
         `${TMDB_IMAGE_BASE_URL.POSTER}${movie.poster_path}`;

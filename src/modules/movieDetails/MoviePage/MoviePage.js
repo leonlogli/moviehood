@@ -39,7 +39,7 @@ export default function MoviePage() {
     >
       <div className="container">
         <MoviePageHeader movie={movie} className="overlay" />
-        {movie?.video && (
+        {!!movie?.video && (
           <div className="row overlay">
             <div className="col-12  pt-4 pb-2 mt-1">
               <h5>Watch the trailer</h5>

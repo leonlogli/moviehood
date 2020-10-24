@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useFirebase } from "react-redux-firebase";
-import { Navbar, Nav, Form, Button, NavDropdown, Image } from "react-bootstrap";
+import { Navbar, Nav, Button, NavDropdown, Image } from "react-bootstrap";
 import "./Header.scss";
 import { useSelector } from "react-redux";
 import { profileSelector } from "../../../modules/auth";
@@ -44,9 +44,7 @@ const Header = () => {
             My Favorites
           </Nav.Link>
         </Nav>
-        <Form inline>
-          <SearchForm className="mb-3 mt-2 m-md-0" open={onMobile} />
-        </Form>
+        <SearchForm className="mb-3 mt-2 m-md-0" open={onMobile} />
         {!currentUser && (
           <>
             <Button variant="outline-success" as={Link} to="/login">

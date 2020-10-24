@@ -7,8 +7,9 @@ export const SearchForm = ({ className, ...other }) => {
   const history = useHistory();
   const [searchTerm, setSearchTerm] = useState("");
 
-  const handleSubmit = () => {
-    history.push("/search?q=" + searchTerm);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    history.push("/search/?query=" + searchTerm);
   };
 
   const handleChange = (e) => {
