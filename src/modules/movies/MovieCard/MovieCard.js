@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./MovieCard.scss";
 import { FavoriteIcon } from "../../favorites";
 
-const MovieCard = ({ movie }) => {
+const MovieCard = ({ movie, className = "" }) => {
   const { id, title, coverImage, vote_average, vote_count } = movie;
   const history = useHistory();
 
@@ -15,7 +15,7 @@ const MovieCard = ({ movie }) => {
   };
 
   return (
-    <div className="MovieCard" onClick={handleClick}>
+    <div className={"MovieCard " + className} onClick={handleClick}>
       <img src={coverImage} alt="movie" />
       <div className="textBox">
         <h2>{title}</h2>
