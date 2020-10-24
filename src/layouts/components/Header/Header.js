@@ -35,7 +35,7 @@ const Header = () => {
           </Nav.Link>
           <NavDropdown title="Browse" id="basic-nav-dropdown">
             {Object.keys(movieCollections).map((col) => (
-              <NavDropdown.Item key={col} as={Link} to={"movies/" + col}>
+              <NavDropdown.Item key={col} as={Link} to={"/movies/" + col}>
                 {movieCollections[col]}
               </NavDropdown.Item>
             ))}
