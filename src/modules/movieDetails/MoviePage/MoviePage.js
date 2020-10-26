@@ -27,7 +27,7 @@ export default function MoviePage() {
 
   if (error) return <div>Oups !!! something ent wrong</div>;
 
-  if (loading || !movie) return <ProgressIndicator />;
+  if (loading || !movie) return <ProgressIndicator className="h-100" />;
 
   return (
     <div

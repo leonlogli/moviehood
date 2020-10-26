@@ -1,62 +1,48 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import queryString from "query-string";
+import { useSelector, useDispatch } from "react-redux";
 
-import { tmdbApi } from "../../../api";
 import { ProgressIndicator } from "../../../components";
 
-import { MoviePreviewCard, formatMovie } from "../../movies";
+import { MoviePreviewCard } from "../../movies";
 import { useInfiniteScroll } from "../../../hooks";
+
+import { searchMovies, searchResultSelector } from "../state";
 
 import "./SearchPage.scss";
 
 const SearchPage = () => {
-  const [searchResult, setSearchResult] = useState({});
   const location = useLocation();
-
   const { query } = queryString.parse(location.search);
-  const movies = searchResult.results || [];
 
-  const hasMore = searchResult.page
-    ? searchResult.page < searchResult.total_results
-    : true;
-
+  const dispatch = useDispatch();
+  const { searchResult, page, hasMore } = useSelector(searchResultSelector);
   const loading = query && hasMore;
 
   const loadMoreMovies = () => {
-    const { page = 0, results = [] } = searchResult;
-    tmdbApi
-      .searchMovies({ query, page: page + 1 })
-      .then(({ data }) => {
-        setSearchResult({
-          ...data,
-          query,
-          results: [...results, ...data.results.map(formatMovie)],
-        });
-      })
-      .catch((e) => {
-        console.log(e);
-        setSearchResult({});
-      });
+    dispatch(searchMovies({ query, page: page + 1 }));
   };
 
   useEffect(() => {
-    setSearchResult({});
+    dispatch(searchMovies({ query, page: 1 }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query]);
 
   const { loaderRef } = useInfiniteScroll({
     hasMore,
     onLoadMore: loadMoreMovies,
+    initialLoad: false,
   });
 
   return (
     <div className="SearchPage container my-4">
       <h1 className="mb-3 mt-4 h3">Search results</h1>
-      {!loading && movies.length === 0 && (
+      {!loading && searchResult.length === 0 && (
         <p>There are no movies that matched your query.</p>
       )}
       <div className="content d-flex flex-wrap justify-content-start">
-        {movies.map((movie) => (
+        {searchResult.map((movie) => (
           <MoviePreviewCard key={movie.id} movie={movie} />
         ))}
       </div>
