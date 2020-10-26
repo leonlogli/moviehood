@@ -24,7 +24,9 @@ function useInfiniteScroll({
   const scrollerRef = useRef();
   const loaderRef = useRef();
   const unlockRef = useRef(unlock);
-  const onLoadMoreRef = useRef(onLoadMore);
+
+  const onLoadMoreRef = useRef();
+  onLoadMoreRef.current = onLoadMore;
 
   useEffect(() => {
     if (!unlockRef.current) {
