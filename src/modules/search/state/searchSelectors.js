@@ -4,9 +4,8 @@ import { formatMovie } from "../../movies";
 const searchResultStateSelector = (state) => state.search;
 
 export const searchResultSelector = createSelector(
-  [searchResultStateSelector],
-  (searchResultData) => {
-    const { loading, error, searchResult } = searchResultData;
+  [(state) => state.search.searchResult],
+  (searchResult) => {
     const {
       page = 0,
       total_results: totalElements,
@@ -19,8 +18,6 @@ export const searchResultSelector = createSelector(
     const hasMore = page ? page < totalElements : true;
 
     return {
-      loading,
-      error,
       searchResult: data,
       totalElements,
       totalPages,

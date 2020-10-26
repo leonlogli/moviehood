@@ -8,7 +8,9 @@ import { useRef, useEffect } from "react";
  * @param {Function} options.onLoadMore The callback function a function which must be called after
  *    reaching the bottom. It must trigger some sort of action which fetches the next data
  * @param {boolean} options.hasMore The observer will disconnect when there are no more data to load.
- * * @param {boolean} [options.initialLoad=true] Whether to call `onLoadMore` function on initial render.
+ * @param {boolean} [options.initialLoad=true] Whether to call `onLoadMore` function on initial render.
+ * @param {boolean} [options.unlock=true] Initial condition to unlock subsequent calls to `onLoadMore`
+ * if `initialLoad` is false. Ex: page >= 1 or items.length >= 20
  * @param {boolean} [options.init=true] Whether the component should load the first set of items
  * @param {number} [options.threshold=250] The distance in px before the end of the items that will trigger a call to `onLoadMore`
  */
@@ -17,17 +19,18 @@ function useInfiniteScroll({
   onLoadMore,
   threshold = 250,
   initialLoad = true,
+  unlock = true,
 }) {
   const scrollerRef = useRef();
   const loaderRef = useRef();
-  const runCount = useRef(0);
-
-  const onLoadMoreRef = useRef();
-  onLoadMoreRef.current = onLoadMore;
+  const unlockRef = useRef(unlock);
+  const onLoadMoreRef = useRef(onLoadMore);
 
   useEffect(() => {
-    runCount.current++;
-  });
+    if (!unlockRef.current) {
+      unlockRef.current = unlock;
+    }
+  }, [unlock]);
 
   useEffect(() => {
     const loader = loaderRef.current;
@@ -59,7 +62,7 @@ function useInfiniteScroll({
         if (canLoadMore) {
           if (initialLoad) {
             onLoadMoreRef.current();
-          } else if (runCount.current > 2) {
+          } else if (unlockRef.current) {
             onLoadMoreRef.current();
           }
         }

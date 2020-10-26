@@ -25,7 +25,9 @@ const SearchPage = () => {
   };
 
   useEffect(() => {
-    dispatch(searchMovies({ query, page: 1 }));
+    if (page === 0) {
+      dispatch(searchMovies({ query, page: 1 }));
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query]);
 
@@ -33,6 +35,7 @@ const SearchPage = () => {
     hasMore,
     onLoadMore: loadMoreMovies,
     initialLoad: false,
+    unlock: page >= 1, // or searchResult.length >= 20
   });
 
   return (
