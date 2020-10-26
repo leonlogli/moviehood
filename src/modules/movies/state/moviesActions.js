@@ -26,6 +26,13 @@ const getMoviesFailure = (error) => ({
   error,
 });
 
+/**
+ * Get movies from tmdb.
+ *
+ * @param {Object} options - options.
+ * @param {string} [options.collection="popular"] - movie collection.
+ * @param {number} [options.page=1] - page number.
+ */
 export function getMovies(options) {
   return (dispatch) => {
     dispatch(getMoviesRequest());
@@ -62,7 +69,6 @@ export function getCollectionMovies() {
     tmdbApi
       .getCollectionMovies()
       .then((res) => {
-        console.log(res);
         dispatch(getCollectionMoviesSuccess(res));
       })
       .catch((error) => {

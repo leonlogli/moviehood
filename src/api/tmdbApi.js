@@ -18,14 +18,21 @@ export const TMDB_IMAGE_BASE_URL = {
 
 /**
  * Get movies from tmdb.
+ *
  * @param {Object} options - options.
- * @param {string} options.collection - movie collection.
- * @param {number} options.page - page number.
+ * @param {string} [options.collection="popular"] - movie collection.
+ * @param {number} [options.page=1] - page number.
  */
 const getMovies = (options) => {
   const { collection = "popular", page = 1 } = options;
 
-  return apiClient.get(`/movie/${collection}`, { params: { page } });
+  return apiClient
+    .get(`/movie/${collection}`, { params: { page } })
+    .then((res) => {
+      res.data.collection = collection;
+
+      return res;
+    });
 };
 
 /**
@@ -35,13 +42,9 @@ const getCollectionMovies = () => {
   return Promise.all(
     Object.keys(movieCollections).map((collection) =>
       getMovies({ collection })
-        .then((res) => {
-          console.log(res.data);
-          return { ...res.data, collection };
-        })
+        .then((res) => res.data)
         .catch((e) => {
           console.log(e);
-
           return {};
         })
     )
@@ -60,6 +63,7 @@ const getMovie = (id) => {
 
 /**
  * Get a list of similar movies to the specified one
+ *
  * @param {Object} options - options.
  * @param {string} options.id - movie id.
  * @param {number} options.page - page number.
@@ -72,6 +76,7 @@ const getSimilarMovies = (options) => {
 
 /**
  * Search movies.
+ *
  * @param {Object} options - options.
  * @param {string} options.query - search query.
  * @param {number} options.page - page number.

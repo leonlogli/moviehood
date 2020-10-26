@@ -4,7 +4,7 @@ import { useRef, useEffect } from "react";
  * An infinite scroller based on Intersection Observer API.
  * Every time the loader is `N`px to be shown, trigger `onLoadMore` function to load new data.
  *
- * @param {Object} [options={}]
+ * @param {Object} options options
  * @param {Function} options.onLoadMore The callback function a function which must be called after
  *    reaching the bottom. It must trigger some sort of action which fetches the next data
  * @param {boolean} options.hasMore The observer will disconnect when there are no more data to load.
@@ -15,7 +15,6 @@ function useInfiniteScroll({ hasMore, onLoadMore, threshold = 250 }) {
   const scrollerRef = useRef();
   const loaderRef = useRef();
 
-  // closure buster; allow changing the callback on renders without recreating the observer
   const onLoadMoreRef = useRef();
   onLoadMoreRef.current = onLoadMore;
 
@@ -29,27 +28,32 @@ function useInfiniteScroll({ hasMore, onLoadMore, threshold = 250 }) {
       root: scroller,
       rootMargin: `0px 0px ${threshold}px 0px`,
     };
+
     let previousY;
     let previousRatio = 0;
 
     const listener = (entries) => {
-      entries.forEach(
-        ({ isIntersecting, intersectionRatio, boundingClientRect = {} }) => {
-          const { y } = boundingClientRect;
-          if (
-            isIntersecting &&
-            intersectionRatio >= previousRatio &&
-            (!previousY || y < previousY)
-          ) {
-            if (onLoadMoreRef.current) {
-              onLoadMoreRef.current();
-            }
-          }
+      entries.forEach((entry) => {
+        const {
+          isIntersecting,
+          intersectionRatio,
+          boundingClientRect = {},
+        } = entry;
 
-          previousY = y;
-          previousRatio = intersectionRatio;
+        const canLoadMore =
+          isIntersecting &&
+          intersectionRatio >= previousRatio &&
+          (!previousY || boundingClientRect.y < previousY);
+
+        if (canLoadMore) {
+          if (onLoadMoreRef.current) {
+            onLoadMoreRef.current();
+          }
         }
-      );
+
+        previousY = boundingClientRect.y;
+        previousRatio = intersectionRatio;
+      });
     };
 
     const observer = new IntersectionObserver(listener, options);

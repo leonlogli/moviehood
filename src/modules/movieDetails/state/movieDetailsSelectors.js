@@ -16,7 +16,6 @@ export const movieDetailsSelector = createSelector(
     const { loading, error, movieDetails } = movieDetailsData;
 
     Object.values(movieDetails).forEach((movie) => {
-      console.log(movie);
       movie.coverImage =
         movie.backdrop_path &&
         `${TMDB_IMAGE_BASE_URL.BACKDROP}${movie.backdrop_path}`;

@@ -17,15 +17,26 @@ export const moviesSelector = createSelector(
   (moviesData) => {
     const { loading, error, movies } = moviesData;
     const {
-      page,
+      page = 0,
+      collection,
       total_results: totalElements,
       total_pages: totalPages,
       results,
     } = movies;
 
-    const data = results.map(formatMovie);
+    const data = results?.map(formatMovie) || [];
+    const hasMore = page ? page < totalElements : true;
 
-    return { loading, error, movies: data, totalElements, totalPages, page };
+    return {
+      loading,
+      error,
+      movies: data,
+      totalElements,
+      totalPages,
+      page,
+      collection,
+      hasMore,
+    };
   }
 );
 

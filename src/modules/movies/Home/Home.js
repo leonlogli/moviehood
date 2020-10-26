@@ -17,15 +17,15 @@ export default function Home() {
 
   return (
     <div className="Home">
-      <div class="hero position-relative">
-        <img src={bannerImage} ra alt="Banner" />
+      <div className="hero position-relative">
+        <img src={bannerImage} alt="Banner" />
         <div className="overlay" />
-        <div class="introBox col-sm-6 col-md-6 col-xs-12 position-absolute">
+        <div className="introBox col-sm-6 col-md-6 col-xs-12 position-absolute">
           <h1>{userName ? "Hi " + userName : "Welcome"}.</h1>
-          <p>
+          <div>
             Millions of movies, TV shows and people to discover. Explore now.
             <SearchForm open className="mt-4" />
-          </p>
+          </div>
         </div>
       </div>
       <CollectionMovies />

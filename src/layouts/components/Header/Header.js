@@ -57,7 +57,7 @@ const Header = () => {
             {currentUser.avatarUrl && (
               <Image src={currentUser.avatarUrl} roundedCircle />
             )}
-            <Button variant="outline-danger" onClick={handleLogout}>
+            <Button variant="outline-primary" onClick={handleLogout}>
               Logout
             </Button>
           </>

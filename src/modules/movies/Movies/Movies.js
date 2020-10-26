@@ -1,45 +1,39 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 
-import { movieCollections, tmdbApi } from "../../../api";
+import { movieCollections } from "../../../api";
 import { ProgressIndicator } from "../../../components";
 
-import { MoviePreviewCard, formatMovie } from "..";
-import { useInfiniteScroll } from "../../../hooks";
+import { MoviePreviewCard } from "..";
+import { useBeforeUnload, useInfiniteScroll } from "../../../hooks";
+import { moviesSelector, getMovies } from "../state";
 
 import "./Movies.scss";
 
 const Movies = () => {
-  const [searchResult, setSearchResult] = useState({});
   const location = useLocation();
   const collection = location.pathname.substring(8);
-
-  const movies = searchResult.results || [];
   const isValidCollection = Object.keys(movieCollections).includes(collection);
 
-  const hasMore = searchResult.page
-    ? searchResult.page < searchResult.total_results
-    : true;
+  const dispatch = useDispatch();
+  const { movies, page, hasMore, collection: filter } = useSelector(
+    moviesSelector
+  );
 
   const loadMoreMovies = () => {
-    const { page = 0, results = [] } = searchResult;
-    tmdbApi
-      .getMovies({ collection, page: page + 1 })
-      .then(({ data }) => {
-        setSearchResult({
-          ...data,
-          collection,
-          results: [...results, ...data.results.map(formatMovie)],
-        });
-      })
-      .catch((e) => {
-        console.log(e);
-        setSearchResult({});
-      });
+    dispatch(getMovies({ collection, page: page + 1 }));
   };
 
+  useBeforeUnload(() => {
+    dispatch(getMovies({ collection, page: 1 }));
+  });
+
   useEffect(() => {
-    setSearchResult({});
+    if (filter !== collection) {
+      dispatch(getMovies({ collection, page: 1 }));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [collection]);
 
   const { loaderRef } = useInfiniteScroll({

@@ -1,12 +1,11 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useHistory } from "react-router-dom";
 
-import { FavoriteIcon } from "../../favorites";
-
-import "./MoviePreviewCard.scss";
 import noImg from "../../../assets/images/no-image.jpg";
+import { FavoriteIcon } from "../../favorites";
+import "./MoviePreviewCard.scss";
 
 const MoviePreviewCard = ({ movie, className = "" }) => {
   const { id, title, coverImage, vote_average, vote_count } = movie;

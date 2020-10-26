@@ -22,7 +22,13 @@ const moviesReducer = (state = initialState, action) => {
       return { ...state, loading: true, error: null };
     }
     case GET_MOVIES_SUCCESS: {
-      return { ...state, movies: payload, loading: false, error: null };
+      const { results, collection, page } = payload;
+      const reset = state.movies.collection !== collection || page === 1;
+
+      const data = reset ? results : [...state.movies.results, ...results];
+      const movies = { ...payload, results: data };
+
+      return { ...state, movies, loading: false, error: null };
     }
     case GET_MOVIES_FAILURE: {
       return { ...state, loading: false, error: payload };

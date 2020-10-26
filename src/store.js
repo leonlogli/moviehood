@@ -23,6 +23,7 @@ if (!isProdEnv) {
 const persistConfig = {
   key: "root",
   storage,
+  blacklist: ["movieDetails"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

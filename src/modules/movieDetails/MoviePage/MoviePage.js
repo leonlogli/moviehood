@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { ProgressIndicator } from "../../../components";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import ReactPlayer from "react-player";
@@ -7,6 +6,7 @@ import ReactPlayer from "react-player";
 import MoviePageHeader from "../MoviePageHeader";
 
 import { getMovieDetails, movieDetailsSelector } from "../state";
+import { ProgressIndicator } from "../../../components";
 
 import bg from "./bg.jpg";
 import "./MoviePage.scss";
