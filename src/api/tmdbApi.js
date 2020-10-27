@@ -62,19 +62,6 @@ const getMovie = (id) => {
 };
 
 /**
- * Get a list of similar movies to the specified one
- *
- * @param {Object} options - options.
- * @param {string} options.id - movie id.
- * @param {number} options.page - page number.
- */
-const getSimilarMovies = (options) => {
-  const { id, page = 1 } = options;
-
-  return apiClient.get(`/movie/${id}/similar`, { params: { page } });
-};
-
-/**
  * Search movies.
  *
  * @param {Object} options - options.
@@ -92,6 +79,5 @@ export const tmdbApi = {
   searchMovies,
   getMovie,
   getCollectionMovies,
-  getSimilarMovies,
 };
 export default tmdbApi;
