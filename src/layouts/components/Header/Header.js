@@ -23,7 +23,7 @@ const Header = () => {
   };
 
   return (
-    <Navbar className="Header" bg="dark" variant="dark" expand="md">
+    <Navbar className="Header" bg="dark" variant="dark" expand="lg">
       <Navbar.Brand as={Link} to="/">
         MovieHood
       </Navbar.Brand>
