@@ -25,7 +25,8 @@ export default function Home() {
         <div className="introBox col-sm-6 col-md-6 col-xs-12 position-absolute">
           <h1>{userName ? "Hi " + userName : "Welcome"}.</h1>
           <div>
-            Millions of movies, TV shows and people to discover. Explore now.
+            All your favorite movies in one place. Millions of movies to
+            discover.
             <SearchForm open className="mt-4" />
           </div>
         </div>

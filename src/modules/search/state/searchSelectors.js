@@ -1,7 +1,7 @@
 import { createSelector } from "reselect";
 import { formatMovie } from "../../movies";
 
-const searchResultStateSelector = (state) => state.search;
+export const searchResultStateSelector = (state) => state.search;
 
 export const searchResultSelector = createSelector(
   [(state) => state.search.searchResult],

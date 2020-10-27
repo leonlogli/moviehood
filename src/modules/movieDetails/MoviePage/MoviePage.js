@@ -9,6 +9,7 @@ import { getMovieDetails, movieDetailsSelector } from "../state";
 
 import bg from "../../../assets/images/cover.jpg";
 import "./MoviePage.scss";
+import { Helmet } from "react-helmet";
 
 export default function MoviePage() {
   const { id } = useParams();
@@ -36,6 +37,9 @@ export default function MoviePage() {
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${cover})`,
       }}
     >
+      <Helmet>
+        <title>{movie.title + " - MovieHood"}</title>
+      </Helmet>
       <div className="container">
         <MoviePageHeader movie={movie} className="overlay pb-4" />
         {!!movie?.video && (

@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import { Helmet } from "react-helmet";
 
 import { movieCollections } from "../../../api";
 import { ProgressIndicator } from "../../../components";
-
 import { MovieCard } from "..";
 import { useBeforeUnload, useInfiniteScroll } from "../../../hooks";
 import { moviesSelector, getMovies } from "../state";
@@ -47,6 +47,9 @@ const Movies = () => {
 
   return (
     <div className="Movies container my-4">
+      <Helmet>
+        <title>{movieCollections[collection] + " movies - MovieHood"}</title>
+      </Helmet>
       <h1 className="mb-3 mt-4 h3">
         {movieCollections[collection] + " movies"}
       </h1>

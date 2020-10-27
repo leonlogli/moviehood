@@ -2,6 +2,7 @@ import React from "react";
 import { useFirebase } from "react-redux-firebase";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import { useHistory } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 function Login() {
   const history = useHistory();
@@ -9,6 +10,9 @@ function Login() {
 
   return (
     <div>
+      <Helmet>
+        <title>Login - MovieHood</title>
+      </Helmet>
       <StyledFirebaseAuth
         uiConfig={{
           signInFlow: "popup",

@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { useFirebase, isLoaded, isEmpty } from "react-redux-firebase";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import { useHistory } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 function Register() {
   const history = useHistory();
@@ -11,6 +12,9 @@ function Register() {
 
   return (
     <div>
+      <Helmet>
+        <title>Register - MovieHood</title>
+      </Helmet>
       <StyledFirebaseAuth
         uiConfig={{
           signInFlow: "popup",

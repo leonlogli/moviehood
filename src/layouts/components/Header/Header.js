@@ -8,6 +8,7 @@ import { profileSelector } from "../../../modules/auth";
 import { SearchForm } from "../../../modules/search";
 import { movieCollections } from "../../../api";
 import { useMediaQuery } from "../../../hooks";
+import { Logo } from "../../../components";
 
 const Header = () => {
   const history = useHistory();
@@ -24,8 +25,8 @@ const Header = () => {
 
   return (
     <Navbar className="Header" bg="dark" variant="dark" expand="lg">
-      <Navbar.Brand as={Link} to="/">
-        MovieHood
+      <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
+        <Logo fill="#333" height={26} className="mr-1" /> MovieHood
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
