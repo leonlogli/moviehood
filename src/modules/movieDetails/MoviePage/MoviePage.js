@@ -31,7 +31,7 @@ export default function MoviePage() {
 
   return (
     <div
-      className="MoviePage container-fluid py-4 py-md-5"
+      className="MoviePage container-fluid py-sm-4 py-md-5"
       style={{
         backgroundSize: "cover",
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${cover})`,
