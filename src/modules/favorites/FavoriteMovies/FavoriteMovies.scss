@@ -5,6 +5,10 @@
     margin-right: 16px;
 
     @media (min-width: 576px) {
+      max-width: calc(50% - 16px);
+    }
+
+    @media (min-width: 768px) {
       max-width: calc(33% - 16px);
     }
 
