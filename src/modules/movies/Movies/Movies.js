@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { movieCollections } from "../../../api";
 import { ProgressIndicator } from "../../../components";
 
-import { MoviePreviewCard } from "..";
+import { MovieCard } from "..";
 import { useBeforeUnload, useInfiniteScroll } from "../../../hooks";
 import { moviesSelector, getMovies } from "../state";
 
@@ -53,7 +53,7 @@ const Movies = () => {
       {movies.length === 0 && <p>No movie found.</p>}
       <div className="content d-flex flex-wrap justify-content-start">
         {movies.map((movie) => (
-          <MoviePreviewCard key={movie.id} movie={movie} />
+          <MovieCard key={movie.id} movie={movie} />
         ))}
       </div>
       {hasMore && <ProgressIndicator ref={loaderRef} />}

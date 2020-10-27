@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { ProgressIndicator } from "../../../components";
 
-import { MoviePreviewCard } from "../../movies";
+import { MovieCard } from "../../movies";
 import { useInfiniteScroll } from "../../../hooks";
 
 import { searchMovies, searchResultSelector } from "../state";
@@ -46,7 +46,7 @@ const SearchPage = () => {
       )}
       <div className="content d-flex flex-wrap justify-content-start">
         {searchResult.map((movie) => (
-          <MoviePreviewCard key={movie.id} movie={movie} />
+          <MovieCard key={movie.id} movie={movie} />
         ))}
       </div>
       {loading && <ProgressIndicator ref={loaderRef} />}

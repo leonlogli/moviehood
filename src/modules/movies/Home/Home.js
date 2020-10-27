@@ -1,18 +1,20 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-import "./Home.scss";
-
 import CollectionMovies from "../CollectionMovies";
-import { upcomingMovieSelector } from "../state";
-import { profileSelector } from "../../auth";
 import { SearchForm } from "../../search";
 
+import { dailyCoverMovieSelector } from "../state";
+import { profileSelector } from "../../auth";
+
+import bg from "../../../assets/images/cover.jpg";
+import "./Home.scss";
+
 export default function Home() {
-  const upcomingMovie = useSelector(upcomingMovieSelector);
+  const dailyCoverMovie = useSelector(dailyCoverMovieSelector);
   const { displayName } = useSelector(profileSelector);
 
-  const bannerImage = upcomingMovie?.coverImage;
+  const bannerImage = dailyCoverMovie?.coverImage || bg;
   const userName = displayName?.substring(0, displayName.indexOf(" "));
 
   return (

@@ -68,7 +68,7 @@ export const collectionMoviesSelector = createSelector(
   }
 );
 
-export const upcomingMovieSelector = createSelector(
+export const dailyCoverMovieSelector = createSelector(
   [moviesStateSelector],
   (moviesData) => {
     const { moviesByCollection } = moviesData;

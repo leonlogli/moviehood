@@ -1,0 +1,77 @@
+.MovieCard {
+  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2),
+    0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+  background: rgba(66, 66, 66, 0.3);
+  cursor: pointer;
+  width: 222px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  max-height: 350px;
+
+  &:before {
+    content: "";
+    display: block;
+    padding-top: calc(130% + 72px);
+  }
+
+  @media (min-width: 768px) {
+    width: 302px;
+  }
+
+  .innerBox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  img {
+    flex-grow: 1;
+    width: 100%;
+    height: calc(100% - 72px);
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+  }
+
+  .textBox {
+    color: #fff;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .subTitle {
+      font-size: 13px;
+      color: gainsboro;
+    }
+
+    > div:first-child {
+      max-width: calc(100% - 30px);
+    }
+
+    .star {
+      margin: 0 4px 0 10px;
+      width: 0.6em;
+      color: yellow;
+    }
+  }
+
+  .FavoriteIcon {
+    margin-right: -12px;
+  }
+
+  h2 {
+    color: white;
+    font-size: 1rem;
+    margin: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}

@@ -5,12 +5,18 @@ import { FavoriteIcon } from "../../favorites";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import avatar from "./avatar.png";
+import avatar from "./avatar.jpg";
 import noImg from "../../../assets/images/no-image.jpg";
 
 import "./MoviePageHeader.scss";
 
 export const MoviePageHeader = ({ className, movie, ...other }) => {
+  const date = new Date(movie.release_date).toLocaleString(undefined, {
+    month: "short",
+    year: "numeric",
+    day: "numeric",
+  });
+
   return (
     <div {...other} className={"MoviePageHeader row " + className || ""}>
       <div className="col-md-4 mt-3">
@@ -25,7 +31,7 @@ export const MoviePageHeader = ({ className, movie, ...other }) => {
           <div className="flex-grow-1">
             <h4>{movie.title}</h4>
             <div className="d-flex align-content-center infobox">
-              <span>{movie.release_date}</span>
+              <span>{date}</span>
               <span className="info">
                 {movie.genres.map((g) => g.name).join(", ")}
               </span>

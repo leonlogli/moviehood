@@ -1,15 +1,15 @@
 .SearchPage {
-  .MoviePreviewCard {
+  .MovieCard {
     width: 100%;
     margin-top: 16px;
     margin-right: 16px;
 
     @media (min-width: 576px) {
-      max-width: calc(50% - 16px);
+      max-width: calc(33% - 16px);
     }
 
     @media (min-width: 992px) {
-      max-width: calc(33% - 16px);
+      max-width: calc(25% - 16px);
     }
   }
 

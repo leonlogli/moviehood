@@ -4,11 +4,10 @@ import { useSelector, useDispatch } from "react-redux";
 import ReactPlayer from "react-player";
 
 import MoviePageHeader from "../MoviePageHeader";
-
-import { getMovieDetails, movieDetailsSelector } from "../state";
 import { ProgressIndicator } from "../../../components";
+import { getMovieDetails, movieDetailsSelector } from "../state";
 
-import bg from "./bg.jpg";
+import bg from "../../../assets/images/cover.jpg";
 import "./MoviePage.scss";
 
 export default function MoviePage() {
@@ -38,10 +37,10 @@ export default function MoviePage() {
       }}
     >
       <div className="container">
-        <MoviePageHeader movie={movie} className="overlay" />
+        <MoviePageHeader movie={movie} className="overlay pb-4" />
         {!!movie?.video && (
           <div className="row overlay">
-            <div className="col-12  pt-4 pb-2 mt-1">
+            <div className="col-12 pb-2 mt-1">
               <h5>Watch the trailer</h5>
             </div>
             <div className="col-12 pb-4">
