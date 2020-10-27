@@ -1,8 +1,8 @@
 import React from "react";
-import { Layout } from "./layouts";
 import { Switch, Route } from "react-router-dom";
 import ScrollMemory from "react-router-scroll-memory";
 
+import { Layout } from "./layouts";
 import { Login, PrivateRoute, Register } from "./modules/auth";
 import { Home, Movies } from "./modules/movies";
 import { MoviePage } from "./modules/movieDetails";
@@ -30,6 +30,9 @@ const App = () => {
         </PrivateRoute>
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
+        <PrivateRoute exact path="/favorites">
+          <FavoriteMovies />
+        </PrivateRoute>
       </Switch>
     </Layout>
   );
