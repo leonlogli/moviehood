@@ -31,15 +31,19 @@
     color: #fff;
     padding: 16px;
 
-    > span {
-      border-radius: 14px;
-      font-size: 12px;
-      font-weight: 400;
+    .subTitle {
+      font-size: 13px;
+      color: gainsboro;
     }
 
-    > span svg {
-      margin-right: 3px;
-      width: 1em;
+    > div:first-child {
+      max-width: calc(100% - 30px);
+    }
+
+    .star {
+      margin: 0 4px 0 10px;
+      width: 0.9em;
+      color: yellow;
     }
   }
 
