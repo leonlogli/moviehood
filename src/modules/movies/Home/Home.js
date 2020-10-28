@@ -5,14 +5,14 @@ import CollectionMovies from "../CollectionMovies";
 import { SearchForm } from "../../search";
 
 import { dailyCoverMovieSelector } from "../state";
-import { profileSelector } from "../../auth";
+import { authSelector } from "../../auth";
 
 import bg from "../../../assets/images/cover.jpg";
 import "./Home.scss";
 
 export default function Home() {
   const dailyCoverMovie = useSelector(dailyCoverMovieSelector);
-  const { displayName } = useSelector(profileSelector);
+  const { displayName } = useSelector(authSelector);
 
   const bannerImage = dailyCoverMovie?.coverImage || bg;
   const userName = displayName?.substring(0, displayName.indexOf(" "));

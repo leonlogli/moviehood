@@ -1,20 +1,22 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
-import { useFirebase } from "react-redux-firebase";
+import { useFirebase, isEmpty } from "react-redux-firebase";
 import { Navbar, Nav, Button, NavDropdown, Image } from "react-bootstrap";
-import "./Header.scss";
+
 import { useSelector } from "react-redux";
-import { profileSelector } from "../../../modules/auth";
+import { authSelector } from "../../../modules/auth";
 import { SearchForm } from "../../../modules/search";
 import { movieCollections } from "../../../api";
 import { useMediaQuery } from "../../../hooks";
 import { Logo } from "../../../components";
 
+import "./Header.scss";
+
 const Header = () => {
   const history = useHistory();
   const firebase = useFirebase();
 
-  const currentUser = useSelector(profileSelector);
+  const currentUser = useSelector(authSelector);
   const onMobile = useMediaQuery("(max-width: 768px)");
 
   const handleLogout = () => {
@@ -46,17 +48,17 @@ const Header = () => {
           </Nav.Link>
         </Nav>
         <SearchForm className="mb-3 mt-2 m-md-0" open={onMobile} />
-        {!currentUser && (
+        {isEmpty(currentUser) && (
           <>
             <Button variant="outline-success" as={Link} to="/login">
               Login
             </Button>
           </>
         )}
-        {currentUser && (
+        {!isEmpty(currentUser) && (
           <>
-            {currentUser.avatarUrl && (
-              <Image src={currentUser.avatarUrl} roundedCircle />
+            {currentUser.photoURL && (
+              <Image src={currentUser.photoURL} roundedCircle />
             )}
             <Button variant="outline-primary" onClick={handleLogout}>
               Logout
