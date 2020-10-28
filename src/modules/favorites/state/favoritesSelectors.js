@@ -1,5 +1,5 @@
 import { createSelector } from "reselect";
-import { TMDB_IMAGE_BASE_URL } from "../../../api";
+import { formatMovie } from "../../movies";
 
 export const favoriteMoviesStateSelector = (state) =>
   state.firebase.profile.favoriteMovies;
@@ -9,15 +9,9 @@ export const favoriteMoviesSelector = createSelector(
   (favoriteMoviesData) => {
     const data =
       favoriteMoviesData &&
-      Object.values(favoriteMoviesData).map((movie) => ({
-        ...movie,
-        coverImage:
-          movie.poster_path &&
-          `${TMDB_IMAGE_BASE_URL.BACKDROP}${movie.backdrop_path}`,
-        image:
-          movie.poster_path &&
-          `${TMDB_IMAGE_BASE_URL.POSTER}${movie.poster_path}`,
-      }));
+      Object.values(favoriteMoviesData)
+        .map(formatMovie)
+        .sort((a, b) => new Date(b.favoriteAt) - new Date(a.favoriteAt));
 
     return { favoritesMovies: data };
   }

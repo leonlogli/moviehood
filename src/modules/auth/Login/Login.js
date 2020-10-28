@@ -21,7 +21,7 @@ function Login() {
   }
 
   return (
-    <div className="Login container-fluid h-100">
+    <div className="Login container-fluid h-100 py-4 py-md-5">
       <Helmet>
         <title>Login - MovieHood</title>
       </Helmet>

@@ -28,6 +28,7 @@ const FavoriteIcon = ({ movie, ...other }) => {
         history.push("/login");
       } else {
         if (!isFavorite) {
+          movie.favoriteAt = new Date();
           data[movie.id] = movie;
         } else {
           delete data[movie.id];
