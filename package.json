@@ -1,7 +1,29 @@
 {
   "name": "moviehood",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
+  "description": "React-redux + Firebase application to browse, search and save favorite movies",
+  "author": "Léon Logli <leonlogli@gmail.com>",
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=12.16.0",
+    "yarn": ">=1.22.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leonlogli/moviehood"
+  },
+  "keywords": [
+    "movie",
+    "movies",
+    "tmdb",
+    "react",
+    "bootsrap",
+    "es2020",
+    "redux",
+    "sass",
+    "cra"
+  ],
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-brands-svg-icons": "^5.15.1",

@@ -3,6 +3,7 @@ Movie app made with React, Redux and Firebase that allowes to:
 - Browse, filter and search for millions of movies (using TMDB API);
 - View movie details, cast and official trailer;
 - Keep track of your favourite movies
+- Infinite srcoll base on the optimized IntersectionObserver api
 
 [Live Demo](https://moviehood-tv.web.app/)
 
@@ -11,7 +12,6 @@ Movie app made with React, Redux and Firebase that allowes to:
 This project uses a number of open source projects to work properly:
 
 - [React.js](https://github.com/facebook/react) — core library
-- [Next.js](https://github.com/vercel/next.js) — The React Framework for production ready apps
 - [Redux](https://github.com/reduxjs/redux), [React Redux](https://github.com/reduxjs/react-redux) - State management
 - [Sass](https://github.com/sass/sass), — an extension of CSS, adding nested rules, variables, mixins, selector inheritance, and more
 - [Firebase](https://github.com/firebase/firebase-js-sdk) - Google's Backend-as-a-Service platform

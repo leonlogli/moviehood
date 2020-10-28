@@ -15,7 +15,8 @@ export default function Home() {
   const { displayName } = useSelector(authSelector);
 
   const bannerImage = dailyCoverMovie?.coverImage || bg;
-  const userName = displayName?.substring(0, displayName.indexOf(" "));
+  const userName =
+    displayName?.substring(0, displayName.indexOf(" ")) || displayName;
 
   return (
     <div className="Home">
