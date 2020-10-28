@@ -1,6 +1,23 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Movie app made with React, Redux and Firebase that allowes to:
 
-## Available Scripts
+- Browse, filter and search for millions of movies (using TMDB API);
+- View movie details, cast and official trailer;
+- Keep track of your favourite movies
+
+[Live Demo](https://moviehood-tv.web.app/)
+
+## Tech Stack
+
+This project uses a number of open source projects to work properly:
+
+- [React.js](https://github.com/facebook/react) — core library
+- [Next.js](https://github.com/vercel/next.js) — The React Framework for production ready apps
+- [Redux](https://github.com/reduxjs/redux), [React Redux](https://github.com/reduxjs/react-redux) - State management
+- [Sass](https://github.com/sass/sass), — an extension of CSS, adding nested rules, variables, mixins, selector inheritance, and more
+- [Firebase](https://github.com/firebase/firebase-js-sdk) - Google's Backend-as-a-Service platform
+- [Bootstrap](https://github.com/twbs/bootstrap), [React-Bootstrap](https://github.com/react-bootstrap/react-bootstrap) - The most popular HTML, CSS, and JavaScript framework for developing responsive, mobile first projects on the web.
+
+## Getting Started
 
 In the project directory, you can run:
 
@@ -27,42 +44,10 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+## License
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+This source code is licensed under the [Apache License, version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Author: [Léon Komi Logli](https://www.linkedin.com/in/komi-logli-a51ba9151)
