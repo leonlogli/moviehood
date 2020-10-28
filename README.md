@@ -50,7 +50,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ## Other screenshots
 
-![Alt text](home-tablet?raw=true "MovieHood Home Tablet")
+![Alt text](home-tablet.PNG?raw=true "MovieHood Home Tablet")
 
 ![Alt text](home-mobile.PNG?raw=true "MovieHood Home Mobile")
 
