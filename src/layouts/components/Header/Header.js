@@ -2,8 +2,8 @@ import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useFirebase, isEmpty } from "react-redux-firebase";
 import { Navbar, Nav, Button, NavDropdown, Image } from "react-bootstrap";
-
 import { useSelector } from "react-redux";
+
 import { authSelector } from "../../../modules/auth";
 import { SearchForm } from "../../../modules/search";
 import { movieCollections } from "../../../api";
@@ -17,6 +17,8 @@ const Header = () => {
   const firebase = useFirebase();
 
   const currentUser = useSelector(authSelector);
+  const isAuth = !isEmpty(currentUser);
+
   const onMobile = useMediaQuery("(max-width: 768px)");
 
   const handleLogout = () => {
@@ -48,14 +50,14 @@ const Header = () => {
           </Nav.Link>
         </Nav>
         <SearchForm className="mb-3 mt-2 m-md-0" open={onMobile} />
-        {isEmpty(currentUser) && (
+        {!isAuth && (
           <>
             <Button variant="outline-success" as={Link} to="/login">
               Login
             </Button>
           </>
         )}
-        {!isEmpty(currentUser) && (
+        {isAuth && (
           <>
             {currentUser.photoURL && (
               <Image src={currentUser.photoURL} roundedCircle />
