@@ -49,7 +49,7 @@ const Header = () => {
             My Favorites
           </Nav.Link>
         </Nav>
-        <SearchForm className="mb-3 mt-2 m-md-0" open={onMobile} />
+        <SearchForm className="mb-3 mt-2 m-lg-0" open={onMobile} />
         {!isAuth && (
           <>
             <Button variant="outline-success" as={Link} to="/login">

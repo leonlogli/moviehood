@@ -7,6 +7,8 @@ Movie app made with React, Redux and Firebase that allowes to:
 
 [Live Demo](https://moviehood-tv.web.app/)
 
+![Alt text](home.PNG?raw=true "MovieHood")
+
 ## Tech Stack
 
 This project uses a number of open source projects to work properly:
@@ -18,6 +20,8 @@ This project uses a number of open source projects to work properly:
 - [Bootstrap](https://github.com/twbs/bootstrap), [React-Bootstrap](https://github.com/react-bootstrap/react-bootstrap) - The most popular HTML, CSS, and JavaScript framework for developing responsive, mobile first projects on the web.
 
 ## Getting Started
+
+Before you run this project, make sure to get your own env API keys by creating [Firebase project](https://firebase.google.com/) and [TMDB account](https://www.themoviedb.org/). Then rename env.example to .env after setting api keys.
 
 In the project directory, you can run:
 
@@ -43,6 +47,16 @@ The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+## Other screenshots
+
+![Alt text](home-tablet?raw=true "MovieHood Home Tablet")
+
+![Alt text](home-mobile.PNG?raw=true "MovieHood Home Mobile")
+
+![Alt text](favorites.PNG?raw=true "Saved Favorite Movies")
+
+![Alt text](popular-movies.PNG?raw=true "MovieHood Popular movies")
 
 ## License
 

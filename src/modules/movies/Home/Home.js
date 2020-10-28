@@ -23,7 +23,7 @@ export default function Home() {
       <div className="hero position-relative">
         <img src={bannerImage} alt="Banner" />
         <div className="overlay" />
-        <div className="introBox col-sm-6 col-md-6 col-xs-12 position-absolute">
+        <div className="introBox col-sm-6 col-md-6 col-xs-12 position-absolute pr-5">
           <h1>{userName ? "Hi " + userName : "Welcome"}.</h1>
           <div>
             All your favorite movies in one place. Millions of movies to
